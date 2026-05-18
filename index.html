@@ -1,354 +1,191 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dulce Tentación</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="estilos.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dulce Tentación - Proyecto musical con IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <nav class="site-nav" aria-label="Menú de navegación">
+    <a class="logo" href="#inicio">Dulce Tentación</a>
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#canciones">Canciones</a></li>
+      <li><a href="#proceso">Proceso creativo</a></li>
+      <li><a href="#normas">Normas</a></li>
+    </ul>
+    <button class="theme-toggle" type="button" aria-label="Cambiar a modo claro" aria-pressed="false">
+      <span class="theme-icon" aria-hidden="true">☀</span>
+      <span class="theme-text">Claro</span>
+    </button>
+  </nav>
 
-<!-- ══════════════════════════════
-     NAVEGACIÓN
-     ══════════════════════════════ -->
-<nav>
-  <a href="#inicio" class="nav-brand">Dulce Tentación</a>
-  <ul class="nav-links">
-    <li><a href="#inicio">Inicio</a></li>
-    <li><a href="#canciones">Canciones</a></li>
-    <li><a href="#proceso">Proceso Creativo</a></li>
-    <li><a href="#normas">Normas</a></li>
-  </ul>
-  <button class="theme-toggle" id="themeBtn">
-    <span id="themeIcon">☀</span>
-    <span id="themeLabel">Modo claro</span>
-  </button>
-</nav>
-
-<!-- ══════════════════════════════
-     1. PÁGINA PRINCIPAL — INICIO
-     ══════════════════════════════ -->
-<section id="inicio">
-
-  <!-- Esferas de fondo decorativas -->
-  <div class="hero-orbs">
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
-    <div class="orb orb3"></div>
-  </div>
-
-  <!-- 1.3 Encabezado / Bienvenida -->
-  <div class="hero-tag">🎵 Bachata · Fusión · Sentimiento</div>
-
-  <!-- 1.1 Título principal -->
-  <h1 class="hero-title">Dulce Tentación</h1>
-
-  <!-- 1.4 Presentación general del proyecto -->
-  <p class="hero-sub">La música que mueve el alma</p>
-  <p class="hero-desc">
-    Somos un grupo musical apasionado por la bachata y la fusión de ritmos.
-    Cada canción nace de la emoción, la historia y el deseo de conectar con quienes nos escuchan.
-  </p>
-
-  <!-- 1.5 Botones de navegación rápida -->
-  <div class="hero-btns">
-    <a href="#canciones" class="btn btn-green">Escuchar Música</a>
-    <a href="#proceso"   class="btn btn-purple">Proceso Creativo</a>
-  </div>
-
-  <!-- 1.2 Imagen / banner de portada del grupo -->
-  <div class="band-photo-wrapper">
-    <div class="band-photo-box" id="bandPhotoBox" onclick="document.getElementById('bandPhotoInput').click()">
-      <div class="upload-hint" id="bandHint">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--verde3)" stroke-width="1.2">
-          <rect x="3" y="3" width="18" height="18" rx="2"/>
-          <circle cx="8.5" cy="8.5" r="1.5"/>
-          <polyline points="21,15 16,10 5,21"/>
-        </svg>
-        <a href="../8EB6-FD2C/ChatGPT Image 15 may 2026, 12_37_34.png"></a>
-        <p>Haz clic para subir la foto del grupo</p>
-        <span>Recomendado: 1200×500 px</span>
-      </div>
-    </div>
-    <input type="file" id="bandPhotoInput" accept="image/*"/>
-  </div>
-
-</section>
-
-<!-- ══════════════════════════════
-     4. CANCIONES
-     ══════════════════════════════ -->
-<section id="canciones">
-  <div class="container">
-
-    <p class="section-eyebrow">Discografía</p>
-    <h2 class="section-title reveal">Nuestras <span>Canciones</span></h2>
-    <div class="section-line"></div>
-    <p class="section-lead reveal">
-      Sube tus canciones y completa la información de cada una.
-      Se mostrarán como tarjetas con reproductor de audio.
-    </p>
-
-    <!-- Zona de subida de audio -->
-    <div class="upload-zone reveal" id="uploadZone" onclick="document.getElementById('audioInput').click()">
-      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--morado3)" stroke-width="1.2">
-        <path d="M9 18V5l12-2v13"/>
-        <circle cx="6" cy="18" r="3"/>
-        <circle cx="18" cy="16" r="3"/>
-      </svg>
-      <h4>Subir una canción</h4>
-      <p>Arrastra aquí o <span>haz clic para seleccionar</span> un archivo de audio</p>
-      <p style="font-size:0.73rem; margin-top:0.4rem;">MP3 · WAV · OGG · M4A</p>
-    </div>
-    <input type="file" id="audioInput" accept="audio/*"/>
-
-    <!-- 4.1 Formulario de metadatos de la canción -->
-    <div class="song-meta-form" id="songMetaForm">
-      <p style="font-size:0.8rem; color:var(--verde3); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.5rem;">
-        Completar información de la canción
-      </p>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Título de la canción *</label>
-          <input type="text" id="songTitle" placeholder="Ej. Entre tus brazos"/>
-        </div>
-        <div class="form-group">
-          <label>Autor / Grupo *</label>
-          <input type="text" id="songArtist" value="Dulce Tentación" placeholder="Ej. Dulce Tentación"/>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Género musical</label>
-          <select id="songGenre">
-            <option value="Bachata">Bachata</option>
-            <option value="Bachata Fusión">Bachata Fusión</option>
-            <option value="Salsa">Salsa</option>
-            <option value="Merengue">Merengue</option>
-            <option value="Pop Latino">Pop Latino</option>
-            <option value="Otro">Otro</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Año</label>
-          <input type="number" id="songYear" placeholder="2024" min="2000" max="2099"/>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Descripción breve</label>
-        <textarea id="songDesc" placeholder="Cuéntanos sobre esta canción: su historia, inspiración o mensaje..."></textarea>
-      </div>
-      <div class="form-actions">
-        <button class="btn btn-green"   id="addSongBtn"    style="font-size:0.75rem; padding:0.7rem 1.6rem;">Añadir canción</button>
-        <button class="btn btn-purple"  id="cancelSongBtn" style="font-size:0.75rem; padding:0.7rem 1.6rem;">Cancelar</button>
-      </div>
-    </div>
-
-    <!-- Cuadrícula de tarjetas de canciones -->
-    <div class="songs-grid" id="songsGrid">
-      <div class="no-songs" id="noSongs">
+  <main>
+    <section class="hero" id="inicio">
+      <div class="inner hero-layout">
         <div>
-          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1">
-            <path d="M9 18V5l12-2v13"/>
-            <circle cx="6" cy="18" r="3"/>
-            <circle cx="18" cy="16" r="3"/>
-          </svg>
-          <p>Aún no hay canciones. ¡Sube la primera!</p>
+          <p class="eyebrow">Proyecto musical con IA</p>
+          <h1>Dulce <span>Tentación</span></h1>
+          <p class="lead">Bienvenidos a una propuesta de bachata creada para explorar cómo la inteligencia artificial puede ayudar a imaginar letras, melodías, arreglos y una identidad visual propia.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#canciones">Escuchar canciones</a>
+            <a class="button" href="#proceso">Ver proceso</a>
+          </div>
+        </div>
+        <div class="cover" role="img" aria-label="Banner de portada de Dulce Tentación">
+          <div class="cover-badge">
+            <span>Bachata moderna</span>
+            <span>Curso 2025-2026</span>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-  </div>
-</section>
+    <div class="section-divider"></div>
 
-<!-- ══════════════════════════════
-     5. EXPLICACIÓN DEL PROYECTO
-        (PROCESO CREATIVO)
-     ══════════════════════════════ -->
-<section id="proceso">
-  <div class="container">
-
-    <p class="section-eyebrow">Detrás de la Música</p>
-    <h2 class="section-title reveal">Proceso <span>Creativo</span></h2>
-    <div class="section-line"></div>
-    <p class="section-lead reveal">
-      Así nacen nuestras canciones: desde la idea inicial hasta el resultado final,
-      con el apoyo de la inteligencia artificial.
-    </p>
-
-    <div class="proceso-grid">
-
-      <!-- 5.1 Idea inicial -->
-      <div class="proceso-card reveal" data-num="01">
-        <div class="proceso-num">1</div>
-        <h3>Idea Inicial de la Canción</h3>
-        <p>
-          Todo parte de una emoción, una historia o una imagen. Definimos el mensaje que queremos
-          transmitir, el ritmo base de bachata y la estructura de la letra antes de empezar a crear.
-        </p>
-      </div>
-
-      <!-- 5.2 Herramientas de IA -->
-      <div class="proceso-card reveal" data-num="02">
-        <div class="proceso-num">2</div>
-        <h3>Herramientas de IA Utilizadas</h3>
-        <p>Utilizamos inteligencia artificial para generar ideas de letras, armonías y producción musical. Entre las herramientas que usamos:</p>
-        <div class="proceso-tools">
-          <span class="tool-tag">Suno AI</span>
-          <span class="tool-tag">Udio</span>
-          <span class="tool-tag">ChatGPT</span>
-          <span class="tool-tag">Claude</span>
-          <span class="tool-tag">Loudly</span>
+    <section aria-labelledby="presentacion-title">
+      <div class="inner">
+        <p class="eyebrow">Página principal</p>
+        <h2 id="presentacion-title">Presentación general del proyecto</h2>
+        <div class="intro-grid">
+          <article class="panel">
+            <h3>Texto de bienvenida</h3>
+            <p>Esta web presenta el proyecto musical Dulce Tentación, un grupo ficticio de bachata que combina ritmo caribeño, letras románticas y herramientas digitales para construir canciones originales.</p>
+          </article>
+          <article class="panel">
+            <h3>Explicación breve de la actividad</h3>
+            <p>La actividad consiste en crear una canción o pequeño repertorio usando IA de forma responsable: pensar una idea inicial, redactar instrucciones, generar propuestas, revisar el resultado y explicar qué parte ha sido editada por el alumnado.</p>
+          </article>
         </div>
       </div>
+    </section>
 
-      <!-- 5.3 Prompts -->
-      <div class="proceso-card reveal" data-num="03">
-        <div class="proceso-num">3</div>
-        <h3>Prompts o Instrucciones a la IA</h3>
-        <p>
-          Redactamos instrucciones detalladas para guiar a la IA. Por ejemplo:
-          <em style="color:var(--morado3);">
-            "Crea una bachata romántica con guitarra acústica, letra en español sobre el reencuentro
-            después de una larga separación, tempo moderado, estilo Romeo Santos."
-          </em>
-        </p>
-      </div>
+    <div class="section-divider"></div>
 
-      <!-- 5.4 Creación y edición manual -->
-      <div class="proceso-card reveal" data-num="04">
-        <div class="proceso-num">4</div>
-        <h3>Creación y Edición Final</h3>
-        <p>
-          Revisamos el resultado de la IA y realizamos ajustes manuales: corregimos letras,
-          modificamos la melodía, ajustamos la mezcla y añadimos nuestra propia interpretación
-          vocal o instrumental.
-        </p>
-      </div>
+    <section id="canciones" aria-labelledby="canciones-title">
+      <div class="inner">
+        <p class="eyebrow">Canciones</p>
+        <h2 id="canciones-title">Repertorio del proyecto</h2>
+        <p class="lead">Cada tarjeta incluye título, autor o grupo, género musical, una descripción breve y el reproductor con el archivo real de la canción.</p>
+        <div class="song-grid">
+          <article class="song-card">
+            <div class="song-art" aria-hidden="true"></div>
+            <div class="song-body">
+              <h3>Sin cobertura</h3>
+              <div class="meta">
+                <span><strong>Autor o grupo:</strong> Dulce Tentación</span>
+                <span><strong>Género:</strong> Bachata moderna</span>
+              </div>
+              <p>Un tema sobre desconectar del ruido, perder la señal y encontrarse de verdad en medio del ritmo.</p>
+              <audio controls preload="metadata" aria-label="Reproductor de Sin cobertura">
+                <source src="audio/sin-cobertura.mp3" type="audio/mpeg">
+                Tu navegador no permite reproducir audio.
+              </audio>
+              <a class="download-link" href="audio/sin-cobertura.mp3" download>Descargar canción</a>
+            </div>
+          </article>
 
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════
-     6. AVISO LEGAL — NORMAS
-     ══════════════════════════════ -->
-<section id="normas">
-  <div class="container">
-
-    <p class="section-eyebrow">Aviso Legal</p>
-    <h2 class="section-title reveal">Normas y <span>Derechos</span></h2>
-    <div class="section-line"></div>
-    <p class="section-lead reveal">
-      Información sobre el uso responsable de la IA, privacidad y derechos de autor de nuestro proyecto musical.
-    </p>
-
-    <div class="normas-grid">
-
-      <!-- 6.1 Uso responsable de la IA -->
-      <div class="norma-card reveal">
-        <div class="norma-icon green">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde3)" stroke-width="1.8">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-        </div>
-        <h3>Uso Responsable de la IA</h3>
-        <p>
-          Todas las canciones de este proyecto han sido creadas con herramientas de inteligencia
-          artificial con fines educativos y creativos. La IA se utiliza como apoyo al proceso
-          artístico, no como sustitución de la creatividad humana. Se declaran explícitamente
-          las herramientas utilizadas en cada pieza.
-        </p>
-      </div>
-
-      <!-- 6.2 Privacidad y protección de datos -->
-      <div class="norma-card reveal">
-        <div class="norma-icon purple">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--morado3)" stroke-width="1.8">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-          </svg>
-        </div>
-        <h3>Privacidad y Protección de Datos</h3>
-        <p>
-          Este sitio web no recoge ni almacena datos personales de los visitantes. Las canciones
-          subidas permanecen en el navegador del usuario y no se envían a ningún servidor externo.
-          Todo el contenido generado con IA cumple con las condiciones de uso de cada plataforma.
-        </p>
-        <div class="license-badges">
-          <span class="license-badge lb-cc">Creative Commons</span>
-          <span class="license-badge lb-cl">Copyleft</span>
-          <span class="license-badge lb-cp">Copyright</span>
+          <article class="song-card">
+            <div class="song-art" aria-hidden="true"></div>
+            <div class="song-body">
+              <h3>Pasa la botella</h3>
+              <div class="meta">
+                <span><strong>Autor o grupo:</strong> Dulce Tentación</span>
+                <span><strong>Género:</strong> Bachata urbana</span>
+              </div>
+              <p>Una canción de celebración con energía latina, pensada para cantar en grupo y moverse desde el primer compás.</p>
+              <audio controls preload="metadata" aria-label="Reproductor de Pasa la botella">
+                <source src="audio/pasa-la-botella.mp3" type="audio/mpeg">
+                Tu navegador no permite reproducir audio.
+              </audio>
+              <a class="download-link" href="audio/pasa-la-botella.mp3" download>Descargar canción</a>
+            </div>
+          </article>
         </div>
       </div>
+    </section>
 
-      <!-- 6.4 Derechos de autor -->
-      <div class="norma-card reveal">
-        <div class="norma-icon gold">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--dorado)" stroke-width="1.8">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M12 8v4l3 3"/>
-          </svg>
+    <div class="section-divider"></div>
+
+    <section id="proceso" aria-labelledby="proceso-title">
+      <div class="inner">
+        <p class="eyebrow">Proceso creativo</p>
+        <h2 id="proceso-title">Explicación del proyecto</h2>
+        <div class="process-grid">
+          <article class="panel">
+            <h3>Idea inicial de la canción</h3>
+            <p>La idea inicial fue crear una bachata romántica sobre una persona que se enamora durante una noche de baile. Se buscó un tono cálido, latino y fácil de cantar.</p>
+          </article>
+          <article class="panel">
+            <h3>Herramientas de IA utilizadas</h3>
+            <p>Se pueden indicar aquí las herramientas usadas para generar letra, música, portada o edición, por ejemplo ChatGPT, Suno, Udio, Canva, Audacity u otras aplicaciones utilizadas en clase.</p>
+          </article>
+          <article class="panel">
+            <h3>Prompts o instrucciones dadas a la IA</h3>
+            <p>Ejemplo de instrucción empleada para generar una primera propuesta:</p>
+            <div class="prompt-box">Crea una letra de bachata romántica en español para un grupo llamado Dulce Tentación. Debe hablar de una noche de baile, tener estribillo pegadizo y un estilo moderno pero respetando la bachata tradicional.</div>
+          </article>
+          <article class="panel">
+            <h3>Creación y edición de la canción</h3>
+            <p>Después de generar una primera versión, se revisó la letra, se cambiaron palabras repetidas, se ajustó la duración de algunas frases y se eligieron los sonidos que encajaban mejor con el estilo del proyecto.</p>
+          </article>
         </div>
-        <h3>Derechos de Autor</h3>
-        <p>
-          Las letras, melodías y adaptaciones creadas o editadas manualmente por los integrantes del
-          grupo están protegidas bajo licencia Creative Commons Attribution 4.0. Las obras generadas
-          íntegramente por IA se distribuyen bajo los términos de cada herramienta. Se prohíbe el
-          uso comercial sin autorización.
-        </p>
       </div>
+    </section>
 
+    <div class="section-divider"></div>
+
+    <section id="normas" aria-labelledby="normas-title">
+      <div class="inner">
+        <p class="eyebrow">Normas y aviso legal</p>
+        <h2 id="normas-title">Uso responsable de la IA</h2>
+        <div class="legal-grid">
+          <article class="panel">
+            <h3>Uso responsable</h3>
+            <p>La IA se utiliza como apoyo creativo, no como sustituto total del trabajo personal. El resultado debe revisarse, comprenderse y adaptarse antes de publicarlo.</p>
+          </article>
+          <article class="panel">
+            <h3>Privacidad y datos</h3>
+            <p>No se deben introducir datos personales, imágenes privadas ni información sensible de compañeros, profesorado o terceras personas en herramientas de IA.</p>
+          </article>
+          <article class="panel">
+            <h3>Copyright, copyleft y Creative Commons</h3>
+            <p>Antes de usar música, imágenes o textos externos hay que comprobar su licencia. Los recursos Creative Commons pueden tener condiciones como citar al autor, no hacer uso comercial o compartir con la misma licencia.</p>
+          </article>
+          <article class="panel">
+            <h3>Derechos de autor</h3>
+            <p>Las canciones, imágenes y textos creados para el proyecto deben identificar qué partes son originales, qué partes se han generado con IA y qué recursos externos se han utilizado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <strong>Dulce Tentación</strong>
+        <span>Proyecto musical con inteligencia artificial</span>
+      </div>
+      <div>
+        <span>Curso</span>
+        <strong>2025-2026</strong>
+      </div>
+      <div>
+        <span>Materia</span>
+        <strong>Música / TIC</strong>
+      </div>
+      <div>
+        <span>Créditos</span>
+        <strong>Trabajo de aula</strong>
+      </div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- ══════════════════════════════
-     8. PIE DE PÁGINA
-     ══════════════════════════════ -->
-<footer>
-  <div class="footer-inner">
-
-    <!-- 8.1 Nombre del proyecto -->
-    <div class="footer-brand">
-      <h3>Dulce Tentación</h3>
-      <p>
-        Proyecto musical creado con pasión, dedicación y el apoyo de la inteligencia artificial.
-        Cada canción es un viaje emocional que invita a sentir y moverse.
-      </p>
-    </div>
-
-    <!-- Navegación rápida -->
-    <div class="footer-col">
-      <h4>Navegación</h4>
-      <ul>
-        <li><a href="#inicio"    style="color:var(--muted); text-decoration:none;">Inicio</a></li>
-        <li><a href="#canciones" style="color:var(--muted); text-decoration:none;">Canciones</a></li>
-        <li><a href="#proceso"   style="color:var(--muted); text-decoration:none;">Proceso Creativo</a></li>
-        <li><a href="#normas"    style="color:var(--muted); text-decoration:none;">Normas</a></li>
-      </ul>
-    </div>
-
-    <!-- 8.2 Curso · 8.3 Materia · 8.4 Créditos -->
-    <div class="footer-col">
-      <h4>Proyecto</h4>
-      <ul>
-        <li>Grupo: Dulce Tentación</li>
-        <li id="footerCurso">Curso: 2024–2025</li>
-        <li id="footerMateria">Materia: Música / TIC</li>
-        <li id="footerCreditos">Proyecto educativo</li>
-      </ul>
-    </div>
-
-  </div>
-  <div class="footer-bottom">
-    <p>© 2025 <span>Dulce Tentación</span> · Proyecto educativo · Todos los derechos reservados</p>
-    <p>Hecho con <span>♥</span> y bachata</p>
-  </div>
-</footer>
-
-<!-- Script externo -->
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
